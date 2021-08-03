@@ -1,6 +1,7 @@
 const express = require( 'express' );
 const { check } = require( 'express-validator' );
 const router = express.Router();
+
 const { register, login, refreshToken } = require( '../controllers/authController' );
 const { fieldValidators } = require( '../middlewares/field-validators' );
 const { validateJWT } = require( '../middlewares/validate-jwt' );

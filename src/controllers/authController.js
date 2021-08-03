@@ -91,7 +91,7 @@ const login = async ( req = request, res = response ) => {
 
 };
 
-const refreshToken = async ( req = request, res = response ) => {
+const refreshToken = async ( req, res = response ) => {
 
 	try {
 		const { user } = req;

@@ -3,6 +3,7 @@ require( 'dotenv' ).config();
 const cors = require( 'cors' );
 
 const authRoutes = require( './src/routes/authRoutes' );
+const eventsRoutes = require( './src/routes/eventsRoutes' );
 const { dbConnection } = require( './src/database/configDB' );
 
 const app = express();
@@ -15,6 +16,7 @@ app.use( cors() );
 
 // Rutas
 app.use( '/api/auth', authRoutes );
+app.use( '/api/events', eventsRoutes );
 
 // Init DB
 
