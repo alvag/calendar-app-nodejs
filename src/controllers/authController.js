@@ -30,7 +30,6 @@ const register = async ( req = request, res = response ) => {
 			user: {
 				uid: user.id,
 				name: user.name,
-				email: user.email
 			},
 		} );
 
@@ -77,7 +76,6 @@ const login = async ( req = request, res = response ) => {
 			user: {
 				uid: user.id,
 				name: user.name,
-				email: user.email
 			}
 		} );
 
@@ -95,11 +93,12 @@ const refreshToken = async ( req, res = response ) => {
 
 	try {
 		const { user } = req;
-		const token = await generateJWT( user.id, user.name );
+		const token = await generateJWT( user.uid, user.name );
 
 		res.json( {
 			ok: true,
-			token
+			token,
+			user
 		} );
 	} catch ( e ) {
 		res.status( 500 ).json( {
